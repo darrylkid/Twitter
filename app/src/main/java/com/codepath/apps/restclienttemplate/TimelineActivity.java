@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,10 +16,12 @@ import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.models.TweetsAdapter;
+import com.codepath.apps.restclienttemplate.models.User;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,7 @@ import okhttp3.Headers;
 public class TimelineActivity extends AppCompatActivity {
 
     public static final String TAG = "TimelineActivity";
+    public static final int REQUEST_CODE = 20;
     TwitterClient client;
     RecyclerView rvTweets;
     List<Tweet> tweetList;
@@ -47,13 +51,26 @@ public class TimelineActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Compose Icon Clicked", Toast.LENGTH_LONG).show();
 
-        // Go to a new activity when the compose menu item is selected.
+        // Go to the Compose Activity when the compose menu item is selected.
         if (itemId == R.id.compose) {
             Intent intent = new Intent(this, ComposeActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CODE);
         }
         return true;
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+            // Get the data from the intent.
+            Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
+            // Add the data to the RecyclerView
+            tweetList.add(0, tweet);
+            tweetsAdapter.notifyItemInserted(0);
+            rvTweets.smoothScrollToPosition(0);
+        }
     }
 
     @Override
