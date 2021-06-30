@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -48,7 +49,8 @@ public class TimelineActivity extends AppCompatActivity {
 
         // Go to a new activity when the compose menu item is selected.
         if (itemId == R.id.compose) {
-
+            Intent intent = new Intent(this, ComposeActivity.class);
+            startActivity(intent);
         }
         return true;
 
