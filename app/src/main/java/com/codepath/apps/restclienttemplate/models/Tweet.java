@@ -15,6 +15,7 @@ import java.util.Locale;
 
 public class Tweet {
     private static final String TAG = "CreateAtParse";
+
     public String body;
     public String createdAt;
     public User user;

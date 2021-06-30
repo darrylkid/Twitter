@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.models.TweetsAdapter;
@@ -30,6 +33,26 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter tweetsAdapter;
     Button btLogout;
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+
+        Toast.makeText(this, "Compose Icon Clicked", Toast.LENGTH_LONG).show();
+
+        // Go to a new activity when the compose menu item is selected.
+        if (itemId == R.id.compose) {
+
+        }
+        return true;
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +90,7 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.setAdapter(tweetsAdapter);
 
         populateHomeTimeline();
+
 
     }
 
