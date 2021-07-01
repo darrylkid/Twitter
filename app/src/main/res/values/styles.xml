@@ -13,4 +13,8 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="counterText">text counter</style>
+
+    <style name="counterOverride">text override</style>
+
 </resources>

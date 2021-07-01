@@ -6,23 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".ComposeActivity">
 
-    <EditText
-        android:id="@+id/etCompose"
+
+ <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilCompose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minLines="5"
-        android:hint="@string/what_s_happening"
-        android:layout_margin="5dp"
-        android:gravity="start"/>
+        app:counterEnabled="true"
+        app:counterMaxLength="280"
+        app:counterTextColor="@android:color/black"
+        app:counterOverflowTextColor="@android:color/holo_red_dark"
+        app:counterTextAppearance="@style/counterText">
+
+        <EditText
+            android:id="@+id/etCompose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="start"
+            android:hint="@string/what_s_happening"
+            android:minLines="5" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnTweet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etCompose"
+        android:layout_below="@+id/tilCompose"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:text="@string/tweet"
         tools:text="TWEET" />
+
+
+
+
 </RelativeLayout>
