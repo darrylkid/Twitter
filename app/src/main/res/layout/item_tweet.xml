@@ -47,4 +47,16 @@
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/tvScreenName"
         android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivTweetImage"
+        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        android:layout_below="@+id/tvBody"
+        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_margin="5dp" />
+
+
 </RelativeLayout>

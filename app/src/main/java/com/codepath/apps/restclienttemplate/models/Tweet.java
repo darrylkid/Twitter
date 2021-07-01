@@ -16,20 +16,39 @@ import java.util.Locale;
 
 @Parcel
 public class Tweet {
-    private static final String TAG = "CreateAtParse";
+    private static final String TAG = "Tweet";
 
     public String body;
     public String createdAt;
+    public String tweetImageUrl;
     public User user;
+
 
     public Tweet(){};
 
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
 
+
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = getRelativeTimeAgo(jsonObject.getString("created_at"));
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+
+
+
+        JSONObject entities = jsonObject.getJSONObject("entities");
+
+        if (entities.has("media")) {
+            tweet.tweetImageUrl = entities.getJSONArray("media")
+                    .getJSONObject(0)
+                    .getString("media_url_https");
+            Log.i(TAG, "Tweet Image load success.");
+        } else {
+            tweet.tweetImageUrl = "";
+        }
+
+
+
 
         return tweet;
     }

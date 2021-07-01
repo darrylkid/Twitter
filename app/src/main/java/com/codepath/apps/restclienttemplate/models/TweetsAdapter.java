@@ -49,6 +49,21 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         return tweetList.size();
     }
 
+
+    // Clean all elements of the recycler
+    public void clear() {
+        tweetList.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        tweetList.addAll(list);
+        notifyDataSetChanged();
+    }
+
+
+
     // Pass in context and list of tweets.
 
     // For each row, inflate a layout for a tweet.
@@ -59,9 +74,11 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivProfileImage;
+        ImageView ivTweetImage;
         TextView tvScreenName;
         TextView tvBody;
         TextView tvCreatedAt;
+
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
@@ -69,6 +86,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvBody = itemView.findViewById(R.id.tvBody);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
             tvCreatedAt = itemView.findViewById(R.id.tvCreatedAt);
+            ivTweetImage = itemView.findViewById(R.id.ivTweetImage);
         }
 
         public void bind(Tweet tweet) {
@@ -76,8 +94,16 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
             tvCreatedAt.setText(tweet.createdAt);
-
             Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
+
+            if (tweet.tweetImageUrl.equals("")) {
+                ivTweetImage.setVisibility(View.GONE);
+            } else {
+                Glide.with(context).load(tweet.tweetImageUrl).into(ivTweetImage);
+                ivTweetImage.setVisibility(View.VISIBLE);
+            }
+
+
 
         }
 

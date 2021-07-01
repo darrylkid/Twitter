@@ -66,8 +66,9 @@ public class ComposeActivity extends AppCompatActivity {
                         // Let the user know via Toast that their tweet has been submitted.
                         // Go back to the TimelineActivity page.
                         Log.i(TAG, "onSuccess to publish tweet");
+                        Tweet tweet = null;
                         try {
-                            Tweet tweet = Tweet.fromJson(json.jsonObject);
+                            tweet = Tweet.fromJson(json.jsonObject);
                             // Package data into an intent
                             Intent intent = new Intent();
                             intent.putExtra("tweet", Parcels.wrap(tweet));
@@ -81,6 +82,7 @@ public class ComposeActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
                     }
 
                     @Override
