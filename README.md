@@ -41,7 +41,8 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/darrylkid/Twitter/blob/master/TwitterDemonstration.gif' title='Video Walkthrough' width='' alt='Twitter Demonstration' />
+<img src='https://github.com/darrylkid/Twitter/blob/master/TwitterComposeDemonstration.gif' title='Video Walkthrough' width='' alt='Twitter Compose Demonstration' />
 
 
 ## Notes
