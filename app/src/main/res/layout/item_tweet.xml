@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="10dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivProfileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="10dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -21,10 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="0dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:text="TextView"
+        android:textStyle="bold"
         tools:text="darrylkid" />
 
     <TextView
@@ -32,10 +33,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvCreatedAt"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="2dp"
         android:layout_toEndOf="@+id/ivProfileImage"
         android:text="TextView"
+        android:autoLink="all"
+        android:linksClickable="true"
         tools:text="This is the body of the tweet." />
 
     <TextView
@@ -48,15 +51,21 @@
         android:layout_toEndOf="@+id/tvScreenName"
         android:text="TextView" />
 
-    <ImageView
-        android:id="@+id/ivTweetImage"
-        android:layout_alignParentEnd="true"
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-
+        android:orientation="vertical"
+        app:cardCornerRadius="8dp"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/tvBody"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:layout_margin="5dp" />
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/ivTweetImage"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp" />
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>
