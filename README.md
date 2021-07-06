@@ -51,6 +51,11 @@ The following **optional** features are implemented:
       <img align="center" src='https://github.com/darrylkid/Twitter/blob/master/TwitterComposeDemonstration.gif' title='Video Walkthrough' width='' alt='Twitter Compose Demonstration' />
 </p>
 
+<p align="center">
+      <img align="center" src='https://github.com/darrylkid/Twitter/blob/master/TwitterDemonstrationRefresh.gif' title='Video Walkthrough' width='' alt='Twitter Compose Demonstration' />
+</p>
+
+
 
 
 
